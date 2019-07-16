@@ -64,11 +64,12 @@ if [[ -n $MYSQL_HOST && -n $MYSQL_USER && -n $MYSQL_PASSWORD ]]; then
   }
 EOF
 else
+   mkdir sqlite
    cat > /app/timeoff-management/config/db.json << EOF
    {
      "production": {
         "dialect": "sqlite",
-	"storage": "./db.production.sqlite"
+	"storage": "./sqlite/db.production.sqlite"
      }
   }
 EOF
@@ -92,8 +93,10 @@ cat > /app/timeoff-management/config/app.json << EOF
   "promotion_website_domain" : "$PROMOTION_URL"
 }
 EOF
-echo "========= PRINTING CONFIGURATION ========="
+echo "========= APP CONFIGURATION ========="
 cat /app/timeoff-management/config/app.json
+echo "========= DB CONFIGURATION =========="
+cat /app/timeoff-management/config/db.json
 
 npm run-script db-update
 npm start

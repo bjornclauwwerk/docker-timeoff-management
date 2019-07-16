@@ -1,0 +1,22 @@
+version: '3'
+services:
+  timeoff:
+    image: timeoff
+    container_name: timeoff
+    restart: unless-stopped
+    volumes:
+      - timeoff_sqlite:/app/timeoff-management/sqlite
+    environment:
+      - ALLOW_ACCOUNTS_CREATION=true
+      - APP_URL=http://localhost:3000
+      - PROMOTION_URL=http://localhost:3000
+      - NODE_ENV=production
+      # - SENDER_MAIL=
+      # - SMTP_HOST=
+      # - SMTP_PORT=25
+      # - SMTP_USER=
+      # - SMTP_PASSWORD=
+    ports:
+      - "3000:3000"
+volumes:
+  timeoff_sqlite:

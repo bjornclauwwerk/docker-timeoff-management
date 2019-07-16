@@ -1,14 +1,26 @@
 # docker-timeoff-management
 
-Docker implementation of the timeoff-management project
+Docker implementation of the [timeoff-management project](https://github.com/timeoff-management/application) based on works done by [nosinovacao](https://github.com/nosinovacao/docker-timeoff-management) and [thperret](https://github.com/thperret/timeoff-management_docker).
 
 # Using Dockerfile
 
-By default timeoff-management use sqlite and no smtp server configured. 
+By default, timeoff-management uses sqlite and no smtp server configured. 
 
+I have tried many ways but cannot get it running using separated MySQL instance or so. But at least, I have put SQLite file `db.production.sqlite` into a separated volume (timeoff_sqlite) so data is persisted when restart.
 
+## Building Dockerfile
 
-To change default configurations use **environment variables**. 
+```
+$ docker build -t timeoff .
+```
+
+## Running Docker Image
+
+```
+$ docker run -d -p 3000:3000 --name timeoff timeoff
+```
+
+## Environment Variables
 
 | Var Name | Possible values|
 | -------- | ------ |
@@ -22,21 +34,12 @@ To change default configurations use **environment variables**.
 | **PROMOTION_URL** | http://timeoff.management |
 | **ALLOW_ACCOUNTS_CREATION** | true , false |
 
-## Tags
+# Using Docker-Compose
 
-Tags are written using the following pattern: `timeoff-management:<year>.<month>.<revision>`
+```
+$ docker-compose up -d
+```
 
-* timeoff-management:18.09.0
-* timeoff-management:18.07.0
-* timeoff-management:18.03.1
-* timeoff-management:18.03.0
+# Docker Hub
 
-More info on docker hub: <https://hub.docker.com/r/nosinovacao/timeoff-management/>
-
-### Build and run docker image 
-
-_Build_:
-> $ docker build -t timeoff . 
-
-_Run_:
-> $ docker run -e NODE_ENV=production -e MYSQL_USER=timeoff timeoff
+My built image is available on Docker Hub at [pacroy/timeoff](https://hub.docker.com/r/pacroy/timeoff).
