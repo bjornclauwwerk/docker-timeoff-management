@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.7
 
 EXPOSE 3000
 
@@ -9,7 +9,8 @@ RUN apk add --no-cache \
     git \
     make \
     nodejs npm \
-    python3 \
+    python \
+    sqlite \
     vim
     
 #RUN adduser --system app --home /app
