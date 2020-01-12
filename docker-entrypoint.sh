@@ -98,5 +98,6 @@ cat /app/timeoff-management/config/app.json
 echo "========= DB CONFIGURATION =========="
 cat /app/timeoff-management/config/db.json
 
+npm install handlebars@4.4.5
 npm run-script db-update
 npm start
