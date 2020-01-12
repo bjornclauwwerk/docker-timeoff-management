@@ -17,7 +17,6 @@ RUN apk add --no-cache \
 WORKDIR /app
 RUN git clone https://github.com/timeoff-management/application.git timeoff-management
 WORKDIR /app/timeoff-management
-RUN git checkout v0.9.0
 
 RUN npm install --production
 
