@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.8
 
 EXPOSE 3000
 
@@ -17,6 +17,7 @@ RUN apk add --no-cache \
 WORKDIR /app
 RUN git clone https://github.com/timeoff-management/application.git timeoff-management
 WORKDIR /app/timeoff-management
+RUN git checkout v0.6.2
 
 RUN npm install --production
 
