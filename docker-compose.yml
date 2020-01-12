@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - timeoff_sqlite:/app/timeoff-management/sqlite
+      - timeoff_sqlite:/app/timeoff-management/config
     environment:
       - ALLOW_ACCOUNTS_CREATION=true
       - APP_URL=http://localhost:3000
@@ -20,3 +21,4 @@ services:
       - "3000:3000"
 volumes:
   timeoff_sqlite:
+  timeoff_config:
