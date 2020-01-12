@@ -9,7 +9,7 @@ RUN apk add --no-cache \
     git \
     make \
     nodejs npm \
-    python2.7 \
+    python3 \
     vim
     
 #RUN adduser --system app --home /app
