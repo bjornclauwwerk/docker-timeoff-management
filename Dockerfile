@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM alpine:3.8
 
 EXPOSE 3000
 
@@ -24,5 +24,6 @@ RUN npm install --production
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 
 VOLUME [ "/app/timeoff-management/sqlite" ]
+VOLUME [ "/app/timeoff-management/config" ]
 
 ENTRYPOINT ["sh","/docker-entrypoint.sh"]
