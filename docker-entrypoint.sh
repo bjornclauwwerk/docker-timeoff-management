@@ -33,7 +33,7 @@ fi
 if [[ -e /app/timeoff-management/config/crypto_secret ]]; then
 	CRYPTO_SECRET=$(cat /app/timeoff-management/config/crypto_secret)
 else
-	echo -n $(tr -dc A-Za-z0-9_\#\(\)\!: < /dev/urandom | head -c 40 | xargs) > /app/timeoff-management/config/crypto_secret
+	echo -n LCokdvUx!QLvpjvPyqqQTBBIiD3zTqd!1Yky2lL3 > /app/timeoff-management/config/crypto_secret
 	CRYPTO_SECRET=$(cat /app/timeoff-management/config/crypto_secret)
 fi
 
